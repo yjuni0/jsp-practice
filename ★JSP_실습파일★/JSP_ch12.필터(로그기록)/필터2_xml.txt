@@ -1,0 +1,25 @@
+<web-app>
+
+   <!--1.필터 설정 -->
+   <filter>
+      <filter-name>Filter02</filter-name>
+      <filter-class>ch12.com.filter.InitInitParamFilter</filter-class>
+
+      <!--매개변수/값을 설정 자바코드/jsp에서, 적용함. -->
+      <init-param>
+         <param-name>param1</param-name>
+         <param-value>admin</param-value>
+      </init-param>
+      
+      <init-param>
+         <param-name>param2</param-name>
+         <param-value>1234</param-value>
+      </init-param>
+   </filter>
+
+   <!--2.필터 매핑 -->
+   <filter-mapping>
+      <filter-name>Filter02</filter-name>
+      <url-pattern>/ch12/filter02_process.jsp</url-pattern>
+   </filter-mapping>
+</web-app>

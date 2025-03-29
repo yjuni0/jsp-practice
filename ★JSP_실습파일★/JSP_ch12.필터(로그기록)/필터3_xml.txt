@@ -1,0 +1,21 @@
+<web-app>
+
+	<!--1.필터 설정 -->
+	<filter>
+		<filter-name>Filter02_2</filter-name>
+		<filter-class>ch12.com.filter.LogFileFilter</filter-class>
+
+		<!--매개변수/값을 설정 자바코드/jsp에서, 적용함. -->
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>C:\\logs:\\monitor.log</param-value>
+		</init-param>
+		
+	</filter>
+
+	<!--2.필터 매핑 -->
+	<filter-mapping>
+		<filter-name>Filter02</filter-name>
+		<url-pattern>/ch12/filter02_process.jsp</url-pattern>
+	</filter-mapping>
+</web-app>

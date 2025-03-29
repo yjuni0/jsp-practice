@@ -1,0 +1,37 @@
+■시큐리티 역할 설정
+<security-role>은 웹 애플리케이션에 사용하는 역할을 나열하는 요소다.
+
+
+■시큐리티 제약 사항 설정
+<security-constraint>는 사용자의 요청 URL에 대한 접근 권한을 정의한다.
+<web-resource-collection>은 웹 자원에 대한 접근을 설정한다.
+<auth-constraint>는 웹 자원에 접근할 수 있는 인증된 사용자를 설정한다.
+<user-data-constraint>는 데이터 전송 시 데이터 보호를 설정한다.
+<web-resource-collection>은 웹 자원에 대한 접근을 설정하는 요소다.
+<web-resource-name>은 웹 자원의 이름을 설정하며 생략할 수 있다.
+<url-pattern>은 접근 제한을 요청할 URL 목록을 설정한다. 자원에 대한 접근을 제한하지 않는 경우 생략할 수 있다.
+<http-method> 또는 <http-method-omission>은 http 메소드를 설정한다(GET 또는 POST).
+<auth-constraint>는 권한이 부여된 사용자만이 웹 자원에 접근할 수 있도록 이름을 설정하는 요소다.
+<description>은 권한 부여 제약 사항에 대한 설명을 기술한다.
+<role-name>은 권한이 부여된 사용자의 이름을 대문자와 소문자를 구분하여 설정한다. 
+이 때 반드시 tomcat-users.xml에 등록된 역할과 사용자여야 한다. 만약 모든 사용자에게 권한을 부여하려면 *로 표시한다. 
+<role-name>요소를 생략하면 <url-pattern>요소에 설정된 접근 제한 URL에 대한 사용자의 요청을 허용하지 않는다.
+<user-data-constraint>요소는 클라이언트와 서버 간에 데이터를 전송할 때 데이터를 보호하는 방법을 설정하는 요소다.
+
+
+■시큐리티 인증 설정
+<login-config>는 <security-constraint> 요소에 설정된 접근 제한 자원에 사용자가 접근하는 경우 해당 자원의 접근을 위한 인증 처리 방법을 활성화한다.
+<auth-method>는 웹 애플리케이션의 인증 처리 기법을 설정하는 요소다.
+<auth-method>의 요소 중 FORM 기반 인증 처리는 웹 브라우저가 인증 처리에 직접적으로 관여하지 않기 때문에 
+사용자가 로그인 페이지에 인증 정보를 직접 입력해야 전달된다. 
+이때 로그인 페이지에서 
+form 태그의 action 속성 값은 j_security_check로, 사용자의 name 속성은 j_username으로, 비밀번호의 name 속성은 j_password로 설정해야 한다.
+
+<realm-name>은 기본 인증의 영역 이름을 설정하는 요소다.
+<form-login-config>는 인증 처리를 위한 로그인 및 오류 페이지를 설정하는 요소다.
+
+
+<auth-method>BASIC</auth-method> <!-- BASIC 인증 처리 기법 사용 -->
+
+
+
